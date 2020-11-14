@@ -2,11 +2,22 @@
     <html>
         <head>
             <title>Stack Visualization</title>
+            <link rel="stylesheet" type="text/css" href="./styles/index.css" media="screen"/>
+            <script src="./scripts/index.js"></script>
         </head>
         <body>
-            
+            <div class="header">
+                <h1>Stack Visualization</h1>
+            </div>
+            <div id="stack">
+                <!-- first child will be top of stack -->
+            </div>
+            <div id="control-panel">
+                <button onclick="stackPush()">Push</button>
+                <button onclick="stackPop()">Pop</button>
+            </div>
         </body>
     </html>
     
-
-
+    <!-- https://css-tricks.com/snippets/css/a-guide-to-flexbox/ -->
+    <!-- https://www.digitalocean.com/community/tutorials/how-to-make-changes-to-the-dom -->
