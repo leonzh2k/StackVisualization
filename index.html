@@ -9,12 +9,31 @@
             <div class="header">
                 <h1>Stack Visualization</h1>
             </div>
-            <div id="stack">
-                <!-- first child will be top of stack -->
-            </div>
-            <div id="control-panel">
-                <button onclick="stackPush()">Push</button>
-                <button onclick="stackPop()">Pop</button>
+            <div id="stack-wrapper">
+                <div id="empty-column">
+
+                </div>
+                <div id="stack-column">
+                    <div id="stack">
+                        <!-- first child will be top of stack -->
+                    </div>
+                </div>
+                <div id="control-panel-column">
+                    <div id="manual-controls">
+                        <h1>Manual Input</h1>
+                        <button onclick="stackPush()">Push</button>
+                        <button onclick="stackPop()">Pop</button>
+                    </div>
+                    <div id="auto-controls">
+                        <h1>File Input</h1>
+                        <input type="file" name="inputfile" id="inputfile">
+                        <button onclick="runFile()">Run</button>
+                        <div id="current-operation-name">AWAITING INPUT</div>
+                        <br> 
+
+                        <div id="output">file contents show up here</div>
+                    </div>
+                </div>
             </div>
         </body>
     </html>

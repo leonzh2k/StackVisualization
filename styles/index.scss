@@ -25,38 +25,88 @@ html {
 }
 
 body {
-    @extend %center-items;
+    // display: flex;
+    // flex-direction: row;
+    // justify-content: center;
+    // align-items: center;
+    
     height: 100%;
     width: 100%;
     background-color: $site-background-color;
     border: 2px black solid;
-}
 
-.header {
-    @extend %center-items;
-    width: 100%;
-    background-color: blue;
-    color: white;
+    .header {
+        @extend %center-items;
+        width: 100%;
+        background-color: blue;
+        color: white;
+        
+    }
+    
+}
+#stack-wrapper {
+    display: grid;
+    grid-template-columns: 20% 60% 20%;
+    border: 2px red solid;
     
 }
 
-#stack {
-    @extend %stack-display;
-    margin-top: 100px;
-    border-bottom: $stack-border-rule;
-    border-left: $stack-border-rule;
-    border-right: $stack-border-rule;
-    width: 300px;
-    height: 500px;
-    .stack-item {
-        @extend %center-items;
-        color: white;
-        width: 100%;
-        height: 100px;
-        background-color: green;
-        border: 1px red solid;
+#stack-column {
+    border: 2px yellow solid;
+    @extend %center-items;
+    #stack {
+        @extend %stack-display;
+        // justify-self: center;
+        margin-top: 100px;
+        border-bottom: $stack-border-rule;
+        border-left: $stack-border-rule;
+        border-right: $stack-border-rule;
+        width: 300px;
+        height: 500px;
+        .stack-item {
+            @extend %center-items;
+            color: white;
+            width: 100%;
+            height: 100px;
+            background-color: green;
+            border: 1px red solid;
+        }
     }
 }
+
+#control-panel-column {
+    @extend %center-items;
+    border: 2px green solid;
+    #manual-controls {
+        @extend %center-items;
+        background-color: rgb(204, 204, 204);
+        flex-grow: 1;
+        width: 100%;
+        border: 2px purple solid;
+    }
+    #auto-controls {
+        @extend %center-items;
+        background-color: rgb(204, 204, 204);
+        flex-grow: 1;
+        width: 100%;
+        border: 2px yellow solid;
+    }
+}
+
+#current-operation-name {
+    margin-top: 10px;
+}
+
+#output {
+    width: 300px;
+    height: 200px;
+    border: 2px red solid;
+    background-color: white;
+    word-wrap: break-word;
+}
+
+
+
 
 
 
