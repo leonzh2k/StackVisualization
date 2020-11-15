@@ -113,7 +113,7 @@ function runFile() {
                 //alert(actionNumber);
                 var delay = function(actionNumber) {
                     setTimeout(function() {  
-                        document.getElementById('current-operation-name').textContent = actionNumber + ": POP";
+                        document.getElementById('current-operation-name').textContent = actionNumber + ": PUSH";
                         stackPush(); 
                     }, timer);
                 }
