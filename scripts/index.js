@@ -4,6 +4,7 @@ window.addEventListener('load', (event) => {
         window.stackItemNumber = 0;
         window.stackDOMNode = document.getElementById('stack');
         window.fileInputRunning = false;
+        window.actionNumber = 0;
         document.getElementById('inputfile').addEventListener('change', function() { 
             var fr=new FileReader(); 
             fr.onload=function(){ 
@@ -90,32 +91,46 @@ function runFile() {
     //alert(document.getElementById('output').textContent);
     var cmdsToRun = document.getElementById('output').textContent;
     cmdsToRun = cmdsToRun.split(" ");
-    alert(cmdsToRun);
+    //alert(cmdsToRun);
     var timer = 1000;
     try {
 
         //will execute after all ops done
         setTimeout(function(){ 
             document.getElementById('current-operation-name').textContent = "FINISHED";
+            actionNumber = 0;
             fileInputRunning = false;
         }, timer * (cmdsToRun.length + 1));
 
         for (var i = 0; i < cmdsToRun.length; i++) {
+            
+            
+            //alert(actionNumber);
             if (cmdsToRun[i] === "push") {
                 //alert("push");
-                setTimeout(function(i){ 
-                    document.getElementById('current-operation-name').textContent = String(i + 1) + ": PUSH";
-                    stackPush(); 
-                }, timer);
+                actionNumber = i + 1;
+                actionNumber = actionNumber.toString();
+                //alert(actionNumber);
+                var delay = function(actionNumber) {
+                    setTimeout(function() {  
+                        document.getElementById('current-operation-name').textContent = actionNumber + ": POP";
+                        stackPush(); 
+                    }, timer);
+                }
+                delay(actionNumber);
                 
             }
             if (cmdsToRun[i] === "pop") {
                 //alert("pop");
-                setTimeout(function(i){ 
-                    document.getElementById('current-operation-name').textContent = String(i + 1) + ": POP";
-                    stackPop(); 
-                }, timer);
-                
+                actionNumber = i + 1;
+                actionNumber = actionNumber.toString();
+                var delay = function(actionNumber) {
+                    setTimeout(function() {  
+                        document.getElementById('current-operation-name').textContent = actionNumber + ": POP";
+                        stackPop(); 
+                    }, timer);
+                }
+                delay(actionNumber);
             }
             timer += 1000;
             
