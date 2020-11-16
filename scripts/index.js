@@ -23,6 +23,9 @@ window.addEventListener('load', (event) => {
 
 
 function stackPush() {
+    if (fileInputRunning) {
+        return 0;
+    }
     //alert("stack push")
     //overflows after 24
     try {
@@ -58,10 +61,13 @@ function stackPush() {
     //alert("stack push done")
     //alert(stack);
     //alert(String(stackItemNumber));
-    
+    return 1;
 }
 
 function stackPop() {
+    if (fileInputRunning) {
+        return 0;
+    }
     //alert("stack pop")
     //alert("stack pop");
     //pop representation element off, then remove associated html element from dom
@@ -75,17 +81,18 @@ function stackPop() {
     //alert(stack);
     //alert(String(stackItemNumber));
     //alert("stack pop done")
+    return 1;
 }
 //https://www.htmlgoodies.com/beyond/javascript/read-text-files-using-the-javascript-filereader.html
 function runFile() {
     //means no file 
     if (!document.getElementById('inputfile').files[0]) {
         document.getElementById('current-operation-name').textContent = "ERROR: NO FILE DETECTED";
-        return 1;
+        return 0;
     }
     //
     if (fileInputRunning) {
-        return 1;
+        return 0;
     }
     fileInputRunning = true;
     //alert(document.getElementById('output').textContent);
@@ -141,6 +148,6 @@ function runFile() {
         alert(err.message);
     }
     
-    return 0;
+    return 1;
 }
 
